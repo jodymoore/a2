@@ -40,7 +40,7 @@
 
             <?php if($form->isSubmitted()): ?>
        
-                <div class="alert alert-success">Everyone Owes $<?=sanitize(bcdiv((float)$results, 1, 2))?></div>
+                <div class="alert alert-success">Everyone owes $<?=sanitize(bcdiv((float)$results, 1, 2))?></div>
 
             <?php endif; ?> 
         </div>
