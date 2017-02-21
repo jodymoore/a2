@@ -33,7 +33,7 @@
                 <label id ="Lroundup" for="roundup" >Round up?</label>
                 <input id="ck" type='checkbox' name="roundup" <?php if($roundup) echo 'CHECKED' ?>>Yes
                 <br><br>
-                <input type="submit" name="calculate" value="calculate" class='btn btn-primary  btn-small'>
+                <input type="submit" name="calculate" value="Calculate" class='btn btn-primary  btn-small'>
             </form>
 
             <?php if($form->isSubmitted()): ?>
