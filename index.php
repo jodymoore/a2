@@ -39,7 +39,7 @@
 
             <?php if($form->isSubmitted()): ?>
        
-                <div class="alert alert-success">Every One Owes $<?=sanitize(bcdiv($results, 1, 2))?></div>
+                <div class="alert alert-success">Every One Owes $<?=sanitize(bcdiv($results, 2, 2))?></div>
 
             <?php endif; ?> 
         </div>
