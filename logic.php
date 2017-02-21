@@ -15,9 +15,10 @@ $roundup = $form->isChosen('roundup');
 
 if ($roundup) {
 	$results = $howMuchWasTab / $waysToSplit; 
-	$results = round($results);
+	$results = round($results, 2);
 }
 else {
 	$results = $howMuchWasTab / $waysToSplit; 
 }
-
+dump($results);
+dump($roundup);
