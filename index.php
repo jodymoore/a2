@@ -18,9 +18,10 @@
             <form action="index.php"> 
                 <label id ="LtoSplit" for="waysToSplit"  >Split how many ways? </label>
                 <input type="text" name="waysToSplit" value='<?=sanitize($waysToSplit)?>' required><br>
+                <font id="req">* Required</font>
                 <br>
                 <label id ="Ltab" for="tab"  >How much was the tab? </label>
-                <input type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br>
+                <input type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br> <font id="req">* Required</font>
                 <br>
                 <label id ="Lserv" for="service"  >How was the service? </label>
                 <select>
@@ -30,7 +31,7 @@
                     <option value="poor">Poor</option>
                 </select>
                 <br>
-                <label id ="Lroundup" for="roundup" >Round Up?</label>
+                <label id ="Lroundup" for="roundup" >Round up?</label>
                 <input id="ck" type='checkbox' name="roundup" <?php if($roundup) echo 'CHECKED' ?>>Yes
                 <br>
                 <br>
@@ -39,7 +40,7 @@
 
             <?php if($form->isSubmitted()): ?>
        
-                <div class="alert alert-success">Every One Owes $<?=sanitize(bcdiv((float)$results, 1, 2))?></div>
+                <div class="alert alert-success">Everyone Owes $<?=sanitize(bcdiv((float)$results, 1, 2))?></div>
 
             <?php endif; ?> 
         </div>
