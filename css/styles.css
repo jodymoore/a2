@@ -48,13 +48,6 @@ select{
 
 }
 
-input[type='checkbox'] {
-    -webkit-appearance:none;
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-}
-
 #container #title h2 {
     text-align: center;
 }
@@ -83,6 +76,10 @@ em {
     padding-bottom: 20px;
 }
 
+#ck {
+  margin-right: 20px;
+}
+
 #LtoSplit {
     padding-top: 15px;
     padding-bottom: 0px;
@@ -105,6 +102,6 @@ em {
 
 #Lroundup {
     padding-bottom: 20px;
-    margin-right: 2.5%;
-    margin-left: -3%;
+    margin-right: 3%;
+    margin-left: -4.5%;
 }
