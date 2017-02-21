@@ -29,42 +29,27 @@
 }
 
 .alert, .btn {
-    margin-top:30px;
+    margin-top: 3%;
 }
 
 .alert{
-    margin-top:30px;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
 }
 
-#left {
-    width: 300px;
-    text-align: right;
-    margin-right: auto;
-}
-
-#right {
-    width: 300px;
-    margin-left: auto;
-    text-align: left;
-    margin-top: -35%;
-}
 select{
     width: 180px;
     height: 25px;
     margin-bottom: 40px;
 
 }
+
 #ck {
     padding-top: 50px;
     padding-right: 50px;
     margin-right: 20px;
-}
-
-#button {
-  margin-top: 45%;
 }
 
 #container #title h2 {
