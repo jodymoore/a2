@@ -80,27 +80,27 @@ em {
   margin-right: 20px;
 }
 
-#LtoSplit {
+label[for="waysToSplit"] {
     padding-top: 15px;
     padding-bottom: 0px;
     margin-right: 3%;
     margin-left: 1%;
 }
 
-#Ltab {
+label[for="tab"] {
     padding-top: 15px;
     padding-bottom: 0px;
     margin-right: 3%;
     margin-left: -1.5%;
 }
 
-#Lserv {
+label[for="service"] {
     padding-top: 15px;
     margin-right: 3%;
     margin-left: 1.5%;
 }
 
-#Lroundup {
+label[for="roundup"] {
     padding-bottom: 20px;
     margin-right: 3%;
     margin-left: -4.5%;
