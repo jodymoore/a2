@@ -17,15 +17,15 @@
 }
 
 #inner {
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: white;
-  width: 97%;
-  height: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align:center;
-  display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    width: 97%;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    display: inline-block;
 }
 
 .alert, .btn {
@@ -43,6 +43,8 @@ select{
     width: 180px;
     height: 25px;
     margin-bottom: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
 
 }
 
@@ -53,17 +55,22 @@ select{
 }
 
 #container #title h2 {
-  text-align: center;
+    text-align: center;
 }
 
 #container #title h1 {
-  font-size: 40px;
-  text-align: center;
+    font-size: 40px;
+    text-align: center;
 }
 
 label {
-  font-size: 18px;
+    font-size: 18px;
 
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 #LtoSplit {
