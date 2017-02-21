@@ -15,14 +15,16 @@ $roundup = $form->isChosen('roundup');
 
 if ($roundup) {
 	$results = $howMuchWasTab / $waysToSplit; 
-	$results = round($results, 2);
+	$results = round($results);
 }
 else {
 	$results = $howMuchWasTab / $waysToSplit; 
 }
+
 $posOfDecimal = strpos($results, '.');
 
 $start = 0;
+
 $end = $posOfDecimal + 3;
 
-$results = substr($results, $start, $end); # => 10.55
+$results = substr($results, $start, $end); 
