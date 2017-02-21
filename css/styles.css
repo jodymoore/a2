@@ -13,6 +13,7 @@
     height: 775px;
     margin-left: auto;
     margin-right: auto;
+    text-align:center;
 }
 
 #inner {
@@ -23,6 +24,8 @@
   height: 700px;
   margin-left: auto;
   margin-right: auto;
+  text-align:center;
+  display: inline-block;
 }
 
 .alert, .btn {
@@ -35,12 +38,33 @@
     margin-right: auto;
     width: 70%;
 }
+
+#left {
+    width: 300px;
+    text-align: right;
+    margin-right: auto;
+}
+
+#right {
+    width: 300px;
+    margin-left: auto;
+    text-align: left;
+    margin-top: -35%;
+}
 select{
-  width: 180px;
-  height: 25px;
+    width: 180px;
+    height: 25px;
+    margin-bottom: 40px;
+
 }
 #ck {
-  width: 60px;
+    padding-top: 50px;
+    padding-right: 50px;
+    margin-right: 20px;
+}
+
+#button {
+  margin-top: 45%;
 }
 
 #container #title h2 {
@@ -52,7 +76,35 @@ select{
   text-align: center;
 }
 
-#container #inputs input {
-  text-align: center;
+label {
+  font-size: 18px;
 
+}
+
+#LtoSplit {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+#Ltab {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    margin-right: 3%;
+    margin-left: -2%;
+}
+
+#Lserv {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    margin-right: 3%;
+    margin-left: 1.5%;
+}
+
+#Lroundup {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    margin-right: 3%;
+    margin-left: -4%;
 }
