@@ -17,13 +17,13 @@
             <br><br>
             <form action="index.php"> 
                 <label for="waysToSplit" >Split how many ways? </label>
-                <input type="text" name="waysToSplit" value='<?=sanitize($waysToSplit)?>' required><br>
+                <input id="waysToSplit" type="text" name="waysToSplit" value='<?=sanitize($waysToSplit)?>' required><br>
                      <em>* Required</em><br>
                 <label for="tab" >How much was the tab? </label>
-                <input type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br> 
+                <input id ="tab" type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br> 
                      <em>* Required</em><br>
                 <label for="service" >How was the service? </label>
-                <select>
+                <select id="service">
                     <option value="exccelent">Excellent</option>
                     <option value="good">Good</option>
                     <option value="ok">OK</option>
@@ -31,7 +31,7 @@
                 </select>
                 <br>
                 <label for="roundup" >Round up?</label>
-                <input id="ck" type='checkbox' name="roundup" <?php if($roundup) echo 'CHECKED' ?>>Yes
+                <input id="roundup" type='checkbox' name="roundup" <?php if($roundup) echo 'CHECKED' ?>>Yes
                 <br><br>
                 <input type="submit" name="calculate" value="Calculate" class='btn btn-primary  btn-small'>
             </form>
