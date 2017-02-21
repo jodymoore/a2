@@ -20,5 +20,4 @@ if ($roundup) {
 else {
 	$results = $howMuchWasTab / $waysToSplit; 
 }
-dump($results);
-dump($roundup);
+
