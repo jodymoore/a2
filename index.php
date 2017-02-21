@@ -16,13 +16,13 @@
             </div>
             <br><br>
             <form action="index.php"> 
-                <label id ="LtoSplit" for="waysToSplit"  >Split how many ways? </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label id ="LtoSplit" for="waysToSplit"  >Split how many ways? </label>
                 <input type="text" name="waysToSplit" value='<?=sanitize($waysToSplit)?>' required><br>
                 <br>
-                <label id ="Ltab" for="tab"  >How much was the tab? </label>&nbsp;
+                <label id ="Ltab" for="tab"  >How much was the tab? </label>
                 <input type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br>
                 <br>
-                <label id ="Lserv" for="service"  >How was the service? </label>&nbsp;
+                <label id ="Lserv" for="service"  >How was the service? </label>
                 <select>
                     <option value="exccelent">Excellent</option>
                     <option value="good">Good</option>
@@ -30,7 +30,7 @@
                     <option value="poor">Poor</option>
                 </select>
                 <br>
-                <label id ="Lroundup" for="roundup" >Round Up?</label>&nbsp;&nbsp;&nbsp;
+                <label id ="Lroundup" for="roundup" >Round Up?</label>
                 <input id="ck" type='checkbox' name="roundup" <?php if($roundup) echo 'CHECKED' ?>>Yes
                 <br>
                 <br>
@@ -39,7 +39,7 @@
 
             <?php if($form->isSubmitted()): ?>
        
-                <div class="alert alert-success">Every One Owes $<?=sanitize(bcdiv($results, 1, 2))?></div>
+                <div class="alert alert-success">Every One Owes $<?=sanitize(bcdiv((float)$results, 1, 2))?></div>
 
             <?php endif; ?> 
         </div>
