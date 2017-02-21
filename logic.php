@@ -20,4 +20,9 @@ if ($roundup) {
 else {
 	$results = $howMuchWasTab / $waysToSplit; 
 }
+$posOfDecimal = strpos($results, '.');
 
+$start = 0;
+$end = $posOfDecimal + 3;
+
+$results = substr($results, $start, $end); # => 10.55
