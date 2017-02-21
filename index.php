@@ -35,11 +35,11 @@
                 <br><br>
                 <input type="submit" name="calculate" value="Calculate" class='btn btn-primary  btn-small'>
             </form>
-
             <?php if($form->isSubmitted()): ?>
-       
-                <div class="alert alert-success">Everyone owes $<?=sanitize($results)?></div>
-
+                <div class="alert alert-success">
+                    Everyone owes $
+                    <?=sanitize($results)?>                  
+                </div>
             <?php endif; ?> 
         </div>
     </div>
