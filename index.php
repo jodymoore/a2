@@ -31,12 +31,19 @@
                 </select>
                 <br>
                 <label for="includeTip" ></label>
-                <input id="includeTip" type='checkbox' name="includeTip" <?php if(sanitize($includeTip)) echo 'CHECKED' ?>>Include tip
+                <input id="includeTip" type='checkbox' name="includeTip" <?php if(sanitize($includeTip)) echo 'CHECKED' ?>>Include gratuity
                 <br>
                 <label for="roundup" >Round up?</label>
                 <input id="roundup" type='checkbox' name="roundup" <?php if(sanitize($roundup)) echo 'CHECKED' ?>>Yes
                 <br><br>
                 <input type="submit" name="calculate" value="Calculate" class='btn btn-primary  btn-small'>
+                <?php if($errors): ?>
+                <div class="alert alert-danger">
+                    <?php foreach($errors as $error): ?>
+                        <?=$error?><br>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
             </form>
             <?php if($form->isSubmitted()): ?>
                 <div class="alert alert-success">
