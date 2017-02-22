@@ -34,7 +34,7 @@ else
 }
 
 $service = $_GET['service'];
-dump($includeTip);
+dump($service);
 
 if ($includeTip) {
     if ($roundup) {
