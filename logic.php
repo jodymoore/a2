@@ -13,6 +13,8 @@ $serviceScale =  '';
 
 $roundup = $form->isChosen('roundup');
 
+$includeTip = $form->isChosen('includeTip');
+
 $tipAmount = .0;
 
 if(isset($_GET['service']))
@@ -32,14 +34,25 @@ else
 }
 
 $service = $_GET['service'];
-dump($service);
+dump($includeTip);
 
-if ($roundup) {
-	$results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
-	$results = round($results);
+if ($includeTip) {
+    if ($roundup) {
+	    $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+	    $results = round($results);
+    }
+    else {
+	    $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+    }
 }
 else {
-	$results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+	if ($roundup) {
+	    $results = $howMuchWasTab / $waysToSplit; 
+	    $results = round($results);
+    }
+    else {
+	    $results = $howMuchWasTab / $waysToSplit; 
+    }
 }
 
 $posOfDecimal = strpos($results, '.');
