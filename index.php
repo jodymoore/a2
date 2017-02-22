@@ -30,6 +30,9 @@
                     <option value="poor">Poor 10%</option>
                 </select>
                 <br>
+                <label for="includeTip" ></label>
+                <input id="includeTip" type='checkbox' name="includeTip" <?php if(sanitize($includeTip)) echo 'CHECKED' ?>>Include tip
+                <br>
                 <label for="roundup" >Round up?</label>
                 <input id="roundup" type='checkbox' name="roundup" <?php if(sanitize($roundup)) echo 'CHECKED' ?>>Yes
                 <br><br>
