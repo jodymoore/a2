@@ -5,60 +5,79 @@ require('Form.php');
 
 $form = new DWA\Form($_GET);
 
-$waysToSplit = $form->get('waysToSplit', $default = ''); 
+if($form->isSubmitted()) {
 
-$howMuchWasTab = $form->get('tab', $default = ''); 
+    $waysToSplit = $form->get('waysToSplit', $default = ''); 
 
-$serviceScale =  '';
+    $howMuchWasTab = $form->get('tab', $default = ''); 
 
-$roundup = $form->isChosen('roundup');
+    $serviceScale =  '';
 
-$includeTip = $form->isChosen('includeTip');
+    $roundup = $form->isChosen('roundup');
 
-$tipAmount = .0;
+    $includeTip = $form->isChosen('includeTip');
 
-if(isset($_GET['service']))
-{ 
-	switch($_GET['service'])
-    {
-        case "excellent": $tipAmount = .25; break;
-        case "good": $tipAmount = .20; break;
-        case "ok": $tipAmount = .15; break;
-        case "poor": $tipAmount = .10; break;
-        default: $tipAmount = .15; break;
-    }
-}
-else
-{
-    $tipAmount = .15;
-}
+    $tipAmount = .0;
 
-$service = $_GET['service'];
-dump($service);
+    $results;
 
-if ($includeTip) {
-    if ($roundup) {
-	    $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
-	    $results = round($results);
+    $errors = $form->validate(
+        [
+            'waysToSplit' => 'required|numeric',
+            'tab' => 'required'
+        ]
+    );
+
+    if($errors){
+        $results = 0;
     }
     else {
-	    $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+
+        if(isset($_GET['service'])) { 
+	        switch($_GET['service'])
+            {  
+                case "excellent": $tipAmount = .25; break;
+                case "good": $tipAmount = .20; break;
+                case "ok": $tipAmount = .15; break;
+                case "poor": $tipAmount = .10; break;
+                default: $tipAmount = .15; break;
+            }
+        }
+        else {
+            $tipAmount = .15;
+        }
+
+        $service = $_GET['service'];
+        dump($service);
+
+        if ($includeTip) {
+            if ($roundup) {
+	            $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+	            $results = round($results);
+            }
+            else {
+	            $results = (($howMuchWasTab * $tipAmount) + $howMuchWasTab) / $waysToSplit; 
+            }
+        }
+        else {
+	        if ($roundup) {
+	            $results = $howMuchWasTab / $waysToSplit; 
+	            $results = round($results);
+            }
+            else {
+	            $results = $howMuchWasTab / $waysToSplit; 
+            }
+        }
+
+        $posOfDecimal = strpos($results, '.');
+
+        $start = 0;
+
+        $end = $posOfDecimal + 3;
+
+        $results = substr($results, $start, $end); 
     }
 }
-else {
-	if ($roundup) {
-	    $results = $howMuchWasTab / $waysToSplit; 
-	    $results = round($results);
-    }
-    else {
-	    $results = $howMuchWasTab / $waysToSplit; 
-    }
-}
 
-$posOfDecimal = strpos($results, '.');
 
-$start = 0;
 
-$end = $posOfDecimal + 3;
-
-$results = substr($results, $start, $end); 
