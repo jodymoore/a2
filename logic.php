@@ -48,7 +48,6 @@ if($form->isSubmitted()) {
         }
 
         $service = $_GET['service'];
-        dump($service);
 
         if ($includeTip) {
             if ($roundup) {
