@@ -23,11 +23,11 @@
                 <input id ="tab" type="text" name="tab" value='<?=sanitize($howMuchWasTab)?>' required><br> 
                     <em>* Required</em><br>
                 <label for="service" >How was the service? </label>
-                <select id="service">
-                    <option value="exccelent">Excellent</option>
-                    <option value="good">Good</option>
-                    <option value="ok">OK</option>
-                    <option value="poor">Poor</option>
+                <select id="service" name="service" value='<?=sanitize($service)?>' required>>
+                    <option value="excellent">Excellent 25%</option>
+                    <option value="good">Good 20%</option>
+                    <option value="ok">OK 15%</option>
+                    <option value="poor">Poor 10%</option>
                 </select>
                 <br>
                 <label for="roundup" >Round up?</label>
