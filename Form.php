@@ -12,15 +12,15 @@ namespace DWA;
 class Form {
 
     /**
-	* Properties
-	*/
+    * Properties
+    */
     private $request;
     public $hasErrors = false;
 
 
     /**
-	*
-	*/
+    *
+    */
     public function __construct($postOrGet) {
 
         # Store form data (POST or GET) in a class property called $request
@@ -30,11 +30,11 @@ class Form {
 
 
     /**
-	* Get a value from the request, with the option of including a default
+    * Get a value from the request, with the option of including a default
     * if the value is not set.
     * Example usage:
     *   $email = $this->get('email','example@gmail.com');
-	*/
+    */
     public function get($name, $default = null) {
 
         $value = isset($this->request[$name]) ? $this->request[$name] : $default;
@@ -45,10 +45,10 @@ class Form {
 
 
     /**
-	* Determines if a single checkbox is checked
+    * Determines if a single checkbox is checked
     * Example usage:
-    *   <input type='checkbox' name='caseSensitive' <?php if($form->isChecked('caseSensitive')) echo 'CHECKED' ?>>
-	*/
+    *   <input type='checkbox' name='caseSensitive' <?php if($form->isChosen('caseSensitive')) echo 'CHECKED' ?>>
+    */
     public function isChosen($name) {
         $value = isset($this->request[$name]) ? true : false;
 
@@ -57,12 +57,12 @@ class Form {
 
 
     /**
-	* Use in display files to prefill the values of fields if those values are in the request
+    * Use in display files to prefill the values of fields if those values are in the request
     * Second optional parameter lets you set a default value if value does not exist
     *
     * Example usage:
     *   <input type='text' name='email' value='<?=$form->prefill($email, "example@gmail.com")?>'>
-	*/
+    */
     public function prefill($field, $default = '', $sanitize = true) {
 
         if(isset($this->request[$field])) {
@@ -80,8 +80,8 @@ class Form {
 
 
     /**
-	* Returns True if *either* GET or POST have been submitted
-	*/
+    * Returns True if *either* GET or POST have been submitted
+    */
     public function isSubmitted() {
         return $_SERVER['REQUEST_METHOD'] == 'POST' || !empty($_GET);
     }
@@ -106,12 +106,12 @@ class Form {
 
 
     /**
-	* Given an array of fields => validation rules
+    * Given an array of fields => validation rules
     * Will loop through each field's rules
     * Returns an array of error messages
     *
     * Note: Stops after the first error for a given field
-	*/
+    */
     public function validate($fieldsToValidate) {
 
         $errors = [];
@@ -146,7 +146,7 @@ class Form {
         }
 
         # Set public property hasErrors as Boolean
-        $this->hasErrors = empty($errors);
+        $this->hasErrors = !empty($errors);
 
         return $errors;
 
@@ -154,10 +154,10 @@ class Form {
 
 
     /**
-	* Given a String rule like 'alphaNumeric' or 'required'
+    * Given a String rule like 'alphaNumeric' or 'required'
     * It'll return a String message appropriate for that rule
     * Default message is used if no message is set for a given rule
-	*/
+    */
     private function getErrorMessage($rule, $parameter = null) {
 
         $language = [
@@ -181,32 +181,32 @@ class Form {
     ### VALIDATION METHODS FOUND BELOW HERE ###
 
     /**
-	* Returns boolean if given value contains only letters/numbers/spaces
-	*/
+    * Returns boolean if given value contains only letters/numbers/spaces
+    */
     private function alphaNumeric($value) {
         return ctype_alnum(str_replace(' ','', $value));
     }
 
 
     /**
-	* Returns boolean if given value contains only letters/spaces
-	*/
+    * Returns boolean if given value contains only letters/spaces
+    */
     private function alpha($value) {
         return ctype_alpha(str_replace(' ','', $value));
     }
 
 
     /**
-	* Returns boolean if given value contains only numbers
-	*/
+    * Returns boolean if given value contains only numbers
+    */
     private function numeric($value) {
-        return ctype_digit(str_replace(' ','', $value));
+        return is_numeric(str_replace(' ','', $value));
     }
 
 
     /**
-	* Returns boolean if the given value is not blank
-	*/
+    * Returns boolean if the given value is not blank
+    */
     private function required($value) {
         $value = trim($value);
         return $value != '' && isset($value) && !is_null($value);
@@ -214,24 +214,24 @@ class Form {
 
 
     /**
-	* Returns boolean if the given value is a valid email address
-	*/
+    * Returns boolean if the given value is a valid email address
+    */
     private function email($value) {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
 
     /**
-	* Returns value if the given value is GREATER THAN (non-inclusive) the given parameter
-	*/
+    * Returns value if the given value is GREATER THAN (non-inclusive) the given parameter
+    */
     private function min($value, $parameter) {
         return floatval($value) > floatval($parameter);
     }
 
 
     /**
-	* Returns value if the given value is LESS THAN (non-inclusive) the given parameter
-	*/
+    * Returns value if the given value is LESS THAN (non-inclusive) the given parameter
+    */
     private function max($value, $parameter) {
         return floatval($value) < floatval($parameter);
     }
