@@ -21,10 +21,12 @@ if($form->isSubmitted()) {
 
     $results;
 
+    $validated = false;
+
     $errors = $form->validate(
         [
             'waysToSplit' => 'required|numeric',
-            'tab' => 'required'
+            'tab' => 'required|numeric'
         ]
     );
 
@@ -33,6 +35,8 @@ if($form->isSubmitted()) {
     }
     else {
 
+        if($form->isSubmitted())
+            $validated = true;
         if(isset($_GET['service'])) { 
 	        switch($_GET['service'])
             {  
