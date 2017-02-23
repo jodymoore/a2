@@ -45,7 +45,7 @@
                 </div>
                 <?php endif; ?>
             </form>
-            <?php if($form->isSubmitted()): ?>
+            <?php if($validated): ?>
                 <div class="alert alert-success">
                     Everyone owes $
                     <?=sanitize($results)?>                  
