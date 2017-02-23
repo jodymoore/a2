@@ -26,7 +26,7 @@ if($form->isSubmitted()) {
     $errors = $form->validate(
         [
             'waysToSplit' => 'required|numeric',
-            'tab' => 'required'
+            'tab' => 'required|numeric'
         ]
     );
 
